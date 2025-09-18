@@ -101,7 +101,7 @@ JDK: Java Development Kit 8 trở lên.
 
 
 <p align="center">
-  <img src="" alt=<img width="284" height="171" alt="ảnh 1" src="https://github.com/user-attachments/assets/570934a6-bc80-4058-9667-0a1fe55da903" />
+  <img src="<img width="284" height="171" alt="ảnh 1" alt= src="https://github.com/user-attachments/assets/570934a6-bc80-4058-9667-0a1fe55da903" />
 "Hình 1" width="400"/>
 </p>
 <p align="center"><em>Hình 1: Giao diện đăng nhập quản trị (Admin Login)</em></p>
