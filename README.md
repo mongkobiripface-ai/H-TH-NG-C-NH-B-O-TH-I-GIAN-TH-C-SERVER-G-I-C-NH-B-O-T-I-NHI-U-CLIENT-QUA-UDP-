@@ -98,8 +98,7 @@ JDK: Java Development Kit 8 trở lên.
 
 ## 🚀 3. Hình ảnh các chức năng
 
-**Hình 1. Giao diện đăng nhập quản trị (Admin Login)**  
-![Hình 1: Giao diện đăng nhập quản trị](images/login.png)
+
 
 
 <p align="center"
