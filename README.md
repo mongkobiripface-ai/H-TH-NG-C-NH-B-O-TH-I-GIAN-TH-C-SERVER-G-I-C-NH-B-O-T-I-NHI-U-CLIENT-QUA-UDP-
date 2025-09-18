@@ -98,7 +98,8 @@ JDK: Java Development Kit 8 trở lên.
 
 ## 🚀 3. Hình ảnh các chức năng
 
-                       <img width="285" height="168" alt="image" src="https://github.com/user-attachments/assets/7df087ce-f9c9-47fd-93a8-45904d64af01" />
+**Hình 1. Giao diện đăng nhập quản trị (Admin Login)**  
+![Hình 1: Giao diện đăng nhập quản trị](images/login.png)
 
 
 <p align="center"
