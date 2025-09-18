@@ -101,11 +101,10 @@ JDK: Java Development Kit 8 trở lên.
 
 
 <p align="center">
-  <img src="images/<img width="284" height="171" alt="ảnh 1"" alt="Hình 1" width="400"/>
+  <img src="" alt=<img width="284" height="171" alt="ảnh 1" src="https://github.com/user-attachments/assets/570934a6-bc80-4058-9667-0a1fe55da903" />
+"Hình 1" width="400"/>
 </p>
 <p align="center"><em>Hình 1: Giao diện đăng nhập quản trị (Admin Login)</em></p>
- src="https://github.com/user-attachments/assets/a8a605ed-a03d-44d3-a91d-06195b05b2c5" />
-
 
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
