@@ -122,20 +122,19 @@ JDK: Java Development Kit 8 trở lên.
 </p>
 <p align="center"><em>Hình 4: Giao diện Weather Alert Server hiển thị log dữ liệu thời gian thực</em></p>
 
-
-
 4. Hướng dẫn cài đặt và sử dụng
+
 🔧 Yêu cầu hệ thống
 
-Java Development Kit (JDK): phiên bản 8 trở lên
+Java Development Kit (JDK): Phiên bản 8 trở lên
 
 Hệ điều hành: Windows, Linux hoặc macOS
 
 Môi trường phát triển: IDE (Eclipse, IntelliJ IDEA, VS Code) hoặc terminal/command prompt
 
-Bộ nhớ: tối thiểu 512MB RAM
+Bộ nhớ: Tối thiểu 512MB RAM
 
-Dung lượng: khoảng 10MB cho mã nguồn và file biên dịch
+Dung lượng: Khoảng 10MB cho mã nguồn và file biên dịch
 
 📦 Cài đặt và triển khai
 Bước 1: Chuẩn bị môi trường
@@ -146,9 +145,9 @@ java -version
 javac -version
 
 
-Nếu kết quả hiển thị Java 8 hoặc cao hơn → có thể chạy chương trình.
+Nếu kết quả hiển thị Java 8 trở lên → có thể chạy chương trình.
 
-Tải mã nguồn, trong đó gồm 2 file chính:
+Tải mã nguồn, bao gồm hai file chính:
 
 WeatherAlertServerAuto.java (Server)
 
@@ -156,16 +155,15 @@ WeatherAlertClient.java (Client + màn hình đăng nhập Admin)
 
 Bước 2: Biên dịch mã nguồn
 
-Mở terminal, điều hướng đến thư mục chứa mã nguồn, chạy lệnh:
+Mở terminal, điều hướng đến thư mục chứa mã nguồn và chạy lệnh:
 
 javac WeatherAlertServerAuto.java
 javac WeatherAlertClient.java
 
 
-Nếu biên dịch thành công, trong thư mục sẽ sinh ra các file .class.
+Nếu biên dịch thành công, các file .class sẽ được tạo trong thư mục.
 
 Bước 3: Chạy ứng dụng
-
 Khởi động Server
 
 Mở terminal, chạy lệnh:
@@ -173,7 +171,7 @@ Mở terminal, chạy lệnh:
 java WeatherAlertServerAuto
 
 
-Cửa sổ giao diện server xuất hiện với nút Start/Stop và ô log.
+Giao diện server xuất hiện với các nút Start/Stop và ô log.
 
 Nhấn Start → server sẽ gửi cảnh báo thời tiết tự động đến nhóm multicast 239.255.0.1:4446 mỗi 5 giây.
 
@@ -190,33 +188,32 @@ Username: admin
 
 Password: 123456
 
-Sau khi đăng nhập thành công, cửa sổ Weather Alert Client hiện ra:
+Sau khi đăng nhập thành công, cửa sổ Weather Alert Client sẽ hiện ra:
 
 Nhấn Start Client để bắt đầu nhận cảnh báo.
 
-Cảnh báo hiển thị trên bảng theo thời gian thực.
+Cảnh báo sẽ hiển thị theo thời gian thực trên bảng.
 
-Có thể dùng ô tìm kiếm để lọc theo tên thành phố.
+Có thể sử dụng ô tìm kiếm để lọc theo tên thành phố.
 
-Các cảnh báo quan trọng (ví dụ: bão, mưa lớn, lũ) sẽ hiện popup cảnh báo và đổi màu trong bảng.
+Các cảnh báo quan trọng (bão, mưa lớn, lũ…) sẽ hiển thị popup và đổi màu trong bảng.
 
 🚀 Sử dụng ứng dụng
-
 Server
 
-Nhấn Start để gửi dữ liệu thời gian thực.
+Start: Bắt đầu gửi dữ liệu thời gian thực.
 
-Nhấn Stop để dừng gửi.
+Stop: Dừng gửi dữ liệu.
 
-Log các bản tin đã gửi hiển thị trực tiếp trên giao diện.
+Log: Hiển thị trực tiếp các bản tin đã gửi trên giao diện.
 
 Client
 
-Tự động nhận cảnh báo từ server sau khi nhấn Start Client.
+Start Client: Nhận cảnh báo từ server tự động.
 
-Có thể lọc thông tin theo thành phố.
+Stop Client: Ngắt kết nối.
 
-Nhấn Stop Client để ngắt kết nối.
+Tìm kiếm: Lọc thông tin theo thành phố.
 
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu  
