@@ -20,14 +20,14 @@
 </div>
 
 
-## 1. Tổng quan về hệ thống
+##🔧1. Tổng quan về hệ thống
 Hệ thống cảnh báo thời gian thực (Real-time Alert System) là một giải pháp công nghệ cho phép truyền tải thông tin khẩn cấp hoặc cập nhật nhanh chóng từ một nguồn trung tâm (server) đến nhiều thiết bị nhận (client) trong mạng máy tính. Trong đề tài này, hệ thống tập trung vào việc sử dụng giao thức UDP (User Datagram Protocol) để gửi cảnh báo, chẳng hạn như thông báo thiên tai (lũ lụt, cháy rừng), sự cố hệ thống, hoặc cập nhật trạng thái thời gian thực.
 
 UDP được chọn vì đặc tính không kết nối (connectionless) và tốc độ cao, phù hợp với các ứng dụng yêu cầu độ trễ thấp, nơi việc truyền dữ liệu nhanh chóng quan trọng hơn độ tin cậy tuyệt đối (có thể chấp nhận mất một số gói tin nhỏ). Hệ thống này thường được triển khai trong môi trường mạng LAN hoặc localhost, sử dụng cơ chế broadcast (phát sóng) để server gửi một thông điệp duy nhất đến tất cả client mà không cần thiết lập kết nối riêng lẻ. Điều này làm cho hệ thống trở nên hiệu quả về tài nguyên, tiết kiệm băng thông và CPU so với các giao thức như TCP.
 
 Ví dụ thực tế: Trong các hệ thống giám sát như Bizfly Cloud Watcher, công cụ này sử dụng các giao thức tương tự UDP để theo dõi thời gian thực tình trạng máy chủ, website, và gửi cảnh báo tự động về sự cố (quá tải, host down) qua webhook hoặc thông báo tức thì, giúp giảm thời gian gián đoạn xuống mức tối thiểu.
 
-2. Lý do chọn UDP cho hệ thống cảnh báo thời gian thực
+1.1 Lý do chọn UDP cho hệ thống cảnh báo thời gian thực
 Tốc độ và độ trễ thấp: UDP không yêu cầu "bắt tay" (handshaking) hoặc xác nhận nhận dữ liệu (acknowledgment), giúp gói tin được gửi ngay lập tức. Điều này lý tưởng cho ứng dụng thời gian thực như streaming video, VoIP, trò chơi trực tuyến, hoặc cảnh báo khẩn cấp, nơi độ trễ chỉ vài mili giây có thể cứu mạng sống.
 Hỗ trợ broadcast và multicast: Server có thể gửi thông điệp đến địa chỉ 255.255.255.255 (broadcast toàn mạng) hoặc nhóm địa chỉ multicast, đạt đến hàng trăm client cùng lúc mà không cần biết IP cụ thể của từng cái.
 Tiết kiệm tài nguyên: Header UDP chỉ 8 byte (so với 20 byte của TCP), giảm tải cho hệ thống, đặc biệt trong môi trường có nhiều người dùng đồng thời.
@@ -39,7 +39,8 @@ Kết nối	Không kết nối, nhanh chóng	Có kết nối (handshake), chậm
 Độ tin cậy	Thấp (có thể mất gói)	Cao (xác nhận và retransmit)
 Ứng dụng	Thời gian thực (cảnh báo, video, game)	Truyền file, web (yêu cầu chính xác)
 Băng thông	Tiết kiệm hơn	Cao hơn do overhead
-3. Kiến trúc hệ thống cơ bản
+
+1.2 Kiến trúc hệ thống cơ bản
 Hệ thống bao gồm hai thành phần chính:
 
 Server: Phát hiện sự kiện (từ cảm biến, nhập lệnh thủ công, hoặc tích hợp API) và gửi thông điệp cảnh báo qua UDP broadcast đến port cố định (ví dụ: 12345). Sử dụng thư viện socket trong Python để tạo socket UDP và bật tùy chọn broadcast.
@@ -47,10 +48,7 @@ Client: Nhiều thiết bị (máy tính, điện thoại) lắng nghe trên por
 Sơ đồ đơn giản:
 
 text
-[Server] --(UDP Broadcast: "CẢNH BÁO: Lũ lụt!")--> [Client 1] [Client 2] ... [Client N]
-Trong thực tế, hệ thống có thể tích hợp với các công cụ như RTP (Real-time Transport Protocol) trên UDP để hỗ trợ video/hội nghị, hoặc hệ thống dự báo thời tiết sử dụng siêu máy tính để đồng hóa dữ liệu từ vệ tinh, radar, và gửi cảnh báo thời gian thực.
-
-4. Ứng dụng thực tế
+[Server] --(UDP Broadcast: "CẢ3 Ứng dụng thực tế
 Cảnh báo thiên tai: Tích hợp với hệ thống quan trắc (vệ tinh, radar) để gửi thông báo đến cộng đồng, như dự báo bão hoặc lũ lụt với độ chính xác cao.
 Giám sát hệ thống: Trong cloud computing (như Bizfly Cloud), theo dõi máy chủ và cảnh báo sự cố ngay lập tức.
 Trò chơi và giải trí: Truyền vị trí người chơi thời gian thực mà không gián đoạn.
