@@ -223,9 +223,9 @@ java Alert.AlertClientGUI
 - Các cảnh báo được lưu vào file weather_alerts.log.
 
 ## 📚 5. Thông tin liên hệ
-Họ tên: Lê Đức Khánh Long.  
-Lớp: CNTT 16-03.  
-Email: khanhlong12c@gmail.com
+Họ tên: Nguyễn Trung Hiếu  
+Lớp: CNTT 16-01.  
+Email: mongkobiripface@gmail.com
 
 © 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
 
