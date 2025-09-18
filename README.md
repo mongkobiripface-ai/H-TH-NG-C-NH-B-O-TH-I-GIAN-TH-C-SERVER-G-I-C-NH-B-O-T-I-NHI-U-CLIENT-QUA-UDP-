@@ -107,10 +107,22 @@ JDK: Java Development Kit 8 trở lên.
 
 
 <p align="center">
-  <img src="images/hinh2.jpg" alt="Hình 2" width="500"/>
+  <img src="https://github.com/user-attachments/assets/00f0d4b9-b56e-44f9-933d-28f0539c84c5" alt="Hình 2" width="500"/>
 </p>
-<p align="center"><em>Hình 2: Giao diện Client hiển thị các cảnh báo thời tiết</em></p>
+<p align="center"><em>Hình 2: Giao diện Client hiển thị các cảnh báo thời tiết (có nút Start/Stop Client)</em></p>
 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cda04d51-1f56-4842-bc5c-c62a4637aa97" alt="Hình 3" width="500"/>
+</p>
+<p align="center"><em>Hình 3: Cảnh báo quan trọng hiển thị khi có thời tiết nguy hiểm</em></p>
+
+
+<p align="center">
+  <img src="images/hinh4.png" alt="Weather Alert Server" width="400"/>
+  <br/>
+  <em>Hình 4: Giao diện Weather Alert Server hiển thị log dữ liệu thời gian thực</em>
+</p>
 
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
