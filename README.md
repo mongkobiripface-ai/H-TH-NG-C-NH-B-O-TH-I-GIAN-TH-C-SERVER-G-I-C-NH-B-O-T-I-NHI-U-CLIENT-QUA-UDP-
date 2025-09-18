@@ -113,13 +113,12 @@ JDK: Java Development Kit 8 trở lên.
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/5d5d9ec2-961e-4ef1-bc8f-17cfd8403724""<img width="779" height="438" alt="hinh3"  />
- alt="Hình 3" width="500"/>
+  <img src="https://github.com/user-attachments/assets/5d5d9ec2-961e-4ef1-bc8f-17cfd8403724" alt="Hình 3" width="500"/>
 </p>
 <p align="center"><em>Hình 3: Cảnh báo quan trọng hiển thị khi có thời tiết nguy hiểm</em></p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/your-uploaded-link" alt="Hình 4" width="500"/>
+  <img src="https://github.com/user-attachments/assets/2c155982-c4a8-4f24-b9c0-88431afd95fb" alt="Hình 4" width="500"/>
 </p>
 <p align="center"><em>Hình 4: Giao diện Weather Alert Server hiển thị log dữ liệu thời gian thực</em></p>
 
