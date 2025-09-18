@@ -98,9 +98,8 @@ JDK: Java Development Kit 8 trở lên.
 
 ## 🚀 3. Hình ảnh các chức năng
 
-<p align="center">
-  <img src="images/hinh2.jpg" alt="Ảnh 1" width="800"/>
-</p>
+<img width="285" height="168" alt="image" src="https://github.com/user-attachments/assets/7df087ce-f9c9-47fd-93a8-45904d64af01" />
+
 
 <p align="center">
   <em> Hình 1: Giao diện Server hiển thị log cảnh báo và nút điều khiển  </em>
