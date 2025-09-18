@@ -117,12 +117,11 @@ JDK: Java Development Kit 8 trở lên.
 </p>
 <p align="center"><em>Hình 3: Cảnh báo quan trọng hiển thị khi có thời tiết nguy hiểm</em></p>
 
-
 <p align="center">
-  <img src="images/hinh4.png" alt="Weather Alert Server" width="400"/>
-  <br/>
-  <em>Hình 4: Giao diện Weather Alert Server hiển thị log dữ liệu thời gian thực</em>
+  <img src="https://github.com/user-attachments/assets/your-uploaded-link" alt="Hình 4" width="500"/>
 </p>
+<p align="center"><em>Hình 4: Giao diện Weather Alert Server hiển thị log dữ liệu thời gian thực</em></p>
+
 
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
