@@ -113,7 +113,8 @@ JDK: Java Development Kit 8 trở lên.
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cda04d51-1f56-4842-bc5c-c62a4637aa97" alt="Hình 3" width="500"/>
+  <img src="https://github.com/user-attachments/assets/5d5d9ec2-961e-4ef1-bc8f-17cfd8403724""<img width="779" height="438" alt="hinh3"  />
+ alt="Hình 3" width="500"/>
 </p>
 <p align="center"><em>Hình 3: Cảnh báo quan trọng hiển thị khi có thời tiết nguy hiểm</em></p>
 
