@@ -122,7 +122,7 @@ JDK: Java Development Kit 8 trở lên.
 </p>
 <p align="center"><em>Hình 4: Giao diện Weather Alert Server hiển thị log dữ liệu thời gian thực</em></p>
 
-4. Hướng dẫn cài đặt và sử dụng
+## 4. Hướng dẫn cài đặt và sử dụng
 
 🔧 Yêu cầu hệ thống
 
