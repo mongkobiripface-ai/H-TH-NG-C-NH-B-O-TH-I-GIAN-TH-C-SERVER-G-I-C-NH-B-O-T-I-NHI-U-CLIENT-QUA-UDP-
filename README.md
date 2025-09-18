@@ -124,98 +124,99 @@ JDK: Java Development Kit 8 trở lên.
 
 
 
-## 📝 4. Hướng dẫn cài đặt và sử dụng
+4. Hướng dẫn cài đặt và sử dụng
+🔧 Yêu cầu hệ thống
 
-### 🔧 Yêu cầu hệ thống
+Java Development Kit (JDK): phiên bản 8 trở lên
 
-- **Java Development Kit (JDK)**: Phiên bản 8 trở lên
-- **Hệ điều hành**: Windows, macOS, hoặc Linux
-- **Môi trường phát triển**: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt
-- **Bộ nhớ**: Tối thiểu 512MB RAM
-- **Dung lượng**: Khoảng 10MB cho mã nguồn và file thực thi
-- **Tệp cấu hình**: File config.properties chứa API key và URL của OpenWeather API.
+Hệ điều hành: Windows, Linux hoặc macOS
 
+Môi trường phát triển: IDE (Eclipse, IntelliJ IDEA, VS Code) hoặc terminal/command prompt
 
+Bộ nhớ: tối thiểu 512MB RAM
 
+Dung lượng: khoảng 10MB cho mã nguồn và file biên dịch
 
-## 📦 Cài đặt và triển khai
+📦 Cài đặt và triển khai
+Bước 1: Chuẩn bị môi trường
 
-#### Bước 1: Chuẩn bị môi trường
-1. **Kiểm tra Java**: Mở terminal/command prompt và chạy:
-   ```bash
-   java -version
-   javac -version
-   ```
+Kiểm tra Java đã cài đặt:
 
-Đảm bảo cả hai lệnh đều hiển thị phiên bản Java 8 trở lên.
-
-2. **Tải mã nguồn**: Sao chép thư mục `BTL` chứa các file:
-- `AlertServer.java`
-- `AlertServerGUI.java`
-- `AlertClientGUI.java`
-- `Config.java`
-- `config.properties (cần cấu hình WEATHER_API_KEY và WEATHER_API_URL).`
+java -version
+javac -version
 
 
+Nếu kết quả hiển thị Java 8 hoặc cao hơn → có thể chạy chương trình.
 
-Cấu hình file config.properties:
-- `WEATHER_API_KEY=your_openweather_api_key`
-- `WEATHER_API_URL=http://api.openweathermap.org/data/2.5/forecast`
-- `DEFAULT_CITY=Hanoi,vn`
+Tải mã nguồn, trong đó gồm 2 file chính:
 
+WeatherAlertServerAuto.java (Server)
 
-#### Bước 2: Biên dịch mã nguồn
+WeatherAlertClient.java (Client + màn hình đăng nhập Admin)
 
-1. **Mở terminal** và điều hướng đến thư mục chứa mã nguồn
-2. **Biên dịch các file Java**:
-   ```bash
-   javac Alert/*.java
-   ```
-   Hoặc biên dịch từng file riêng lẻ:
-   ```bash
-   javac Alert/AlertServer.java
-   javac Alert/AlertServerGUI.java
-   javac Alert/AlertClientGUI.java
-   javac Alert/Config.java
-   ```
+Bước 2: Biên dịch mã nguồn
 
-3. **Kiểm tra kết quả**: Nếu biên dịch thành công, sẽ tạo ra các file `.class` tương ứng.
+Mở terminal, điều hướng đến thư mục chứa mã nguồn, chạy lệnh:
+
+javac WeatherAlertServerAuto.java
+javac WeatherAlertClient.java
 
 
+Nếu biên dịch thành công, trong thư mục sẽ sinh ra các file .class.
 
-#### Bước 3: Chạy ứng dụng
+Bước 3: Chạy ứng dụng
 
-**Khởi động Server:**
-```bash
-java Alert.AlertServerGUI
-```
-- Giao diện server sẽ hiển thị.
-- Nhập tên thành phố (ví dụ: Hanoi,vn) và nhấn "Start Server".
-- Server sẽ gửi cảnh báo đến nhóm multicast 239.255.0.1:4446 mỗi 5 phút.
+Khởi động Server
 
-**Khởi động Client:**
-```bash
-java Alert.AlertClientGUI
-```
+Mở terminal, chạy lệnh:
 
-- Mở terminal mới cho mỗi client.
-- Client tự động tham gia nhóm multicast và hiển thị các cảnh báo thời tiết.
-
-### 🚀 Sử dụng ứng dụng
-
-1.**Server:**
-
-- Nhập tên thành phố vào ô nhập liệu.
-- Nhấn "Start Server" để bắt đầu gửi cảnh báo.
-- Nhấn "Stop Server" để dừng.
-- Log cảnh báo được hiển thị trên GUI và lưu vào file weather_alerts.log.
+java WeatherAlertServerAuto
 
 
-2.**Client:**
+Cửa sổ giao diện server xuất hiện với nút Start/Stop và ô log.
 
-- Tự động nhận và hiển thị các cảnh báo thời tiết từ server.
-- Nhấn "Stop Client" để ngắt kết nối và thoát.
-- Các cảnh báo được lưu vào file weather_alerts.log.
+Nhấn Start → server sẽ gửi cảnh báo thời tiết tự động đến nhóm multicast 239.255.0.1:4446 mỗi 5 giây.
+
+Khởi động Client
+
+Mở terminal khác, chạy lệnh:
+
+java WeatherAlertClient
+
+
+Giao diện Admin Login xuất hiện. Nhập:
+
+Username: admin
+
+Password: 123456
+
+Sau khi đăng nhập thành công, cửa sổ Weather Alert Client hiện ra:
+
+Nhấn Start Client để bắt đầu nhận cảnh báo.
+
+Cảnh báo hiển thị trên bảng theo thời gian thực.
+
+Có thể dùng ô tìm kiếm để lọc theo tên thành phố.
+
+Các cảnh báo quan trọng (ví dụ: bão, mưa lớn, lũ) sẽ hiện popup cảnh báo và đổi màu trong bảng.
+
+🚀 Sử dụng ứng dụng
+
+Server
+
+Nhấn Start để gửi dữ liệu thời gian thực.
+
+Nhấn Stop để dừng gửi.
+
+Log các bản tin đã gửi hiển thị trực tiếp trên giao diện.
+
+Client
+
+Tự động nhận cảnh báo từ server sau khi nhấn Start Client.
+
+Có thể lọc thông tin theo thành phố.
+
+Nhấn Stop Client để ngắt kết nối.
 
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu  
