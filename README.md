@@ -100,32 +100,8 @@ JDK: Java Development Kit 8 trở lên.
 
 
 
+<img width="284" height="171" alt="ảnh 1" src="https://github.com/user-attachments/assets/a8a605ed-a03d-44d3-a91d-06195b05b2c5" />
 
-<p align="center"
-  <em> Hình 1: Giao diện đăng nhập quản trị (Admin Login)  </em>
-</p>
-
-<p align="center">
-  <img src="images/hinh1.jpg" alt="Ảnh 2" width="700"/>
-</p>
-<p align="center">
-  <em> Hình 2: Giao diện Client hiển thị các cảnh báo thời tiết </em>
-</p>
-
-
-<p align="center">
-  <img src="images/hinh3.jpg" alt="Ảnh 3" width="450"/>
-</p>
-<p align="center">
-  <em> Hình 3: Lịch sử cảnh báo được lưu vào file weather_alerts.log </em>
-</p>
-
-<p align="center">
-  <img src="images/hinh4.jpg" alt="Ảnh 4" width="700"/>
-</p>
-<p align="center">
-  <em> Hình 4: Hiển thị thông báo lỗi khi kết nối API thất bại </em>
-</p>
 
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
