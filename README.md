@@ -20,7 +20,7 @@
 </div>
 
 
-## 1. Tổng quan về hệ thông
+## 1. Tổng quan về hệ thống
 
 
 
@@ -65,29 +65,35 @@ Hệ thống này không chỉ minh họa nguyên lý lập trình mạng mà c�
 
 
 
-Các công nghệ được sử dụng để xây dựng hệ thống cảnh báo thời gian thực:  
+Công nghệ sử dụng
 
-**Java Core và Multithreading: Sử dụng Timer và Thread để định kỳ gửi cảnh báo và xử lý kết nối mạng.**  
+Hệ thống cảnh báo thời gian thực này được xây dựng bằng các công nghệ và công cụ sau:
 
-**Java Swing: Xây dựng giao diện người dùng cho cả server và client.**
+2.1 Ngôn ngữ lập trình
 
-**Java Sockets (UDP): Sử dụng DatagramSocket và MulticastSocket cho giao thức UDP multicast.**
+Java: Hỗ trợ UDP socket và lập trình GUI dễ dàng, chạy được trên nhiều hệ điều hành.
 
-**File I/O: Ghi lịch sử cảnh báo vào file văn bản (weather_alerts.log).**
+2.2 Giao thức
 
-**JSON Processing: Sử dụng thư viện org.json để xử lý dữ liệu thời tiết từ API.**
+UDP (User Datagram Protocol):
 
-Hỗ trợ:  
+Truyền dữ liệu nhanh, phù hợp với cảnh báo thời gian thực.
 
-**java.net và java.io: Xử lý kết nối mạng và đọc/ghi file.**
+Ưu điểm: nhẹ, tốc độ cao, không cần thiết lập kết nối lâu dài.
 
-**java.text.SimpleDateFormat: Tạo dấu thời gian cho các bản ghi log.**  
+2.3 Thư viện / API
 
-**javax.swing.text.html: Hiển thị log với định dạng HTML (màu sắc, biểu tượng).** 
+Java Swing: Dùng để xây dựng giao diện GUI cho client, hiển thị cảnh báo trong JTable hoặc JTextArea.
 
-Không sử dụng cơ sở dữ liệu, đảm bảo ứng dụng nhẹ và dễ triển khai.
+java.net.DatagramSocket / DatagramPacket: Dùng để gửi và nhận dữ liệu qua UDP.
 
+2.4 Công cụ hỗ trợ
 
+IDE: IntelliJ IDEA / Eclipse / NetBeans
+
+Git & GitHub: Lưu trữ code và báo cáo online, dễ nộp bài cho thầy và theo dõi phiên bản.
+
+JDK: Java Development Kit 8 trở lên.
 
 
 ## 🚀 3. Hình ảnh các chức năng
