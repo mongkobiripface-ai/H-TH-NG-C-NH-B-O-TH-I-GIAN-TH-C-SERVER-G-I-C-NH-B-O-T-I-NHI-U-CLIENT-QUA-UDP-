@@ -107,8 +107,7 @@ JDK: Java Development Kit 8 trở lên.
 
 
 <p align="center">
-  <img src="<img width="783" height="440" alt=ảnh 2" src="https://github.com/user-attachments/assets/6e80771b-d482-4929-bc7e-4eee5ed910e2" />
-"" alt="Hình 2" width="500"/>
+  <img src="images/hinh2.jpg" alt="Hình 2" width="500"/>
 </p>
 <p align="center"><em>Hình 2: Giao diện Client hiển thị các cảnh báo thời tiết</em></p>
 
