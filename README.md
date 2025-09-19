@@ -20,44 +20,29 @@
 </div>
 
 
-## 1. Tổng quan về hệ thống
+## 1. Giới thiệu hệ thống
 
 
 
-Hệ thống cảnh báo thời gian thực (Real-time Alert System) là một giải pháp công nghệ cho phép truyền tải thông tin khẩn cấp hoặc cập nhật nhanh chóng từ một nguồn trung tâm (server) đến nhiều thiết bị nhận (client) trong mạng máy tính. Trong đề tài này, hệ thống tập trung vào việc sử dụng giao thức UDP (User Datagram Protocol) để gửi cảnh báo, chẳng hạn như thông báo thiên tai (lũ lụt, cháy rừng), sự cố hệ thống, hoặc cập nhật trạng thái thời gian thực.
+Hệ thống cảnh báo thời gian thực (Real-time Alert System) là một giải pháp công nghệ giúp truyền thông tin khẩn cấp hoặc cập nhật nhanh chóng từ một nguồn trung tâm (server) đến nhiều thiết bị nhận (client) trong mạng.
 
-UDP được chọn vì đặc tính không kết nối (connectionless) và tốc độ cao, phù hợp với các ứng dụng yêu cầu độ trễ thấp, nơi việc truyền dữ liệu nhanh chóng quan trọng hơn độ tin cậy tuyệt đối (có thể chấp nhận mất một số gói tin nhỏ). Hệ thống này thường được triển khai trong môi trường mạng LAN hoặc localhost, sử dụng cơ chế broadcast (phát sóng) để server gửi một thông điệp duy nhất đến tất cả client mà không cần thiết lập kết nối riêng lẻ. Điều này làm cho hệ thống trở nên hiệu quả về tài nguyên, tiết kiệm băng thông và CPU so với các giao thức như TCP.
+Hệ thống này được thiết kế để:
 
-Ví dụ thực tế: Trong các hệ thống giám sát như Bizfly Cloud Watcher, công cụ này sử dụng các giao thức tương tự UDP để theo dõi thời gian thực tình trạng máy chủ, website, và gửi cảnh báo tự động về sự cố (quá tải, host down) qua webhook hoặc thông báo tức thì, giúp giảm thời gian gián đoạn xuống mức tối thiểu.
+Cảnh báo thiên tai: như lũ lụt, bão, cháy rừng, giúp người dân và cơ quan chức năng phản ứng kịp thời.
 
-1.1 Lý do chọn UDP cho hệ thống cảnh báo thời gian thực
-Tốc độ và độ trễ thấp: UDP không yêu cầu "bắt tay" (handshaking) hoặc xác nhận nhận dữ liệu (acknowledgment), giúp gói tin được gửi ngay lập tức. Điều này lý tưởng cho ứng dụng thời gian thực như streaming video, VoIP, trò chơi trực tuyến, hoặc cảnh báo khẩn cấp, nơi độ trễ chỉ vài mili giây có thể cứu mạng sống.
-Hỗ trợ broadcast và multicast: Server có thể gửi thông điệp đến địa chỉ 255.255.255.255 (broadcast toàn mạng) hoặc nhóm địa chỉ multicast, đạt đến hàng trăm client cùng lúc mà không cần biết IP cụ thể của từng cái.
-Tiết kiệm tài nguyên: Header UDP chỉ 8 byte (so với 20 byte của TCP), giảm tải cho hệ thống, đặc biệt trong môi trường có nhiều người dùng đồng thời.
-Nhược điểm cần lưu ý: Không đảm bảo thứ tự gói tin hoặc độ tin cậy (có thể mất gói mà không thông báo), nên phù hợp hơn với dữ liệu không quan trọng tính toàn vẹn, như cảnh báo (nếu mất một thông báo, có thể gửi lại).
-So sánh nhanh với TCP:
+Giám sát hệ thống: theo dõi máy chủ, dịch vụ hoặc thiết bị trong môi trường mạng, phát hiện sự cố tức thì.
 
-Tiêu chí	UDP	TCP
-Kết nối	Không kết nối, nhanh chóng	Có kết nối (handshake), chậm hơn
-Độ tin cậy	Thấp (có thể mất gói)	Cao (xác nhận và retransmit)
-Ứng dụng	Thời gian thực (cảnh báo, video, game)	Truyền file, web (yêu cầu chính xác)
-Băng thông	Tiết kiệm hơn	Cao hơn do overhead
+Hỗ trợ ứng dụng thời gian thực khác: như trò chơi trực tuyến, đồng bộ dữ liệu, hay thông báo nhanh cho người dùng.
 
-1.2 Kiến trúc hệ thống cơ bản
-Hệ thống bao gồm hai thành phần chính:
+Đặc điểm nổi bật:
 
-Server: Phát hiện sự kiện (từ cảm biến, nhập lệnh thủ công, hoặc tích hợp API) và gửi thông điệp cảnh báo qua UDP broadcast đến port cố định (ví dụ: 12345). Sử dụng thư viện socket trong Python để tạo socket UDP và bật tùy chọn broadcast.
-Client: Nhiều thiết bị (máy tính, điện thoại) lắng nghe trên port tương ứng, nhận gói tin và hiển thị cảnh báo (qua console, popup, hoặc thông báo âm thanh).
-Sơ đồ đơn giản:
+Nhận thông tin tức thì: giảm thiểu thời gian phản hồi khi có sự cố.
 
-text
-[Server] --(UDP Broadcast: "CẢ3 Ứng dụng thực tế
-Cảnh báo thiên tai: Tích hợp với hệ thống quan trắc (vệ tinh, radar) để gửi thông báo đến cộng đồng, như dự báo bão hoặc lũ lụt với độ chính xác cao.
-Giám sát hệ thống: Trong cloud computing (như Bizfly Cloud), theo dõi máy chủ và cảnh báo sự cố ngay lập tức.
-Trò chơi và giải trí: Truyền vị trí người chơi thời gian thực mà không gián đoạn.
-DNS và NTP: Truy vấn nhanh địa chỉ web hoặc đồng bộ thời gian.
-Hệ thống này không chỉ minh họa nguyên lý lập trình mạng mà còn có giá trị thực tiễn trong việc nâng cao khả năng ứng phó khẩn cấp, đặc biệt ở Việt Nam với tần suất thiên tai cao.
+Hỗ trợ nhiều client cùng lúc: dữ liệu được gửi đến toàn bộ thiết bị trong mạng mà không cần kết nối riêng lẻ.
 
+Hiệu quả tài nguyên: giảm băng thông và tải CPU nhờ sử dụng cơ chế truyền dữ liệu tối ưu.
+
+Hệ thống minh họa rõ ràng cách ứng dụng công nghệ mạng và lập trình GUI để xây dựng một công cụ hữu ích trong việc nâng cao khả năng ứng phó khẩn cấp, đặc biệt phù hợp với môi trường có thiên tai thường xuyên như ở Việt Nam.
 
 
 ## 🔧 2. Công nghệ sử dụng
@@ -124,96 +109,84 @@ JDK: Java Development Kit 8 trở lên.
 
 ## 4. Hướng dẫn cài đặt và sử dụng
 
-🔧 Yêu cầu hệ thống
+Yêu cầu hệ thống
 
 Java Development Kit (JDK): Phiên bản 8 trở lên
 
-Hệ điều hành: Windows, Linux hoặc macOS
+Hệ điều hành: Windows, Linux, macOS
 
-Môi trường phát triển: IDE (Eclipse, IntelliJ IDEA, VS Code) hoặc terminal/command prompt
+IDE: Eclipse, IntelliJ IDEA, VS Code, hoặc terminal/command prompt
 
-Bộ nhớ: Tối thiểu 512MB RAM
+Bộ nhớ: ≥ 512 MB RAM
 
-Dung lượng: Khoảng 10MB cho mã nguồn và file biên dịch
+Dung lượng mã nguồn: ~10 MB
 
-📦 Cài đặt và triển khai
-Bước 1: Chuẩn bị môi trường
+Cài đặt và chạy hệ thống
 
-Kiểm tra Java đã cài đặt:
+Bước 1: Chuẩn bị
+
+Kiểm tra Java:
 
 java -version
 javac -version
 
 
-Nếu kết quả hiển thị Java 8 trở lên → có thể chạy chương trình.
-
-Tải mã nguồn, bao gồm hai file chính:
+Tải mã nguồn gồm:
 
 WeatherAlertServerAuto.java (Server)
 
-WeatherAlertClient.java (Client + màn hình đăng nhập Admin)
+WeatherAlertClient.java (Client + Admin Login)
 
-Bước 2: Biên dịch mã nguồn
-
-Mở terminal, điều hướng đến thư mục chứa mã nguồn và chạy lệnh:
+Bước 2: Biên dịch
 
 javac WeatherAlertServerAuto.java
 javac WeatherAlertClient.java
 
 
-Nếu biên dịch thành công, các file .class sẽ được tạo trong thư mục.
+Nếu thành công, các file .class sẽ được tạo.
 
-Bước 3: Chạy ứng dụng
-Khởi động Server
-
-Mở terminal, chạy lệnh:
+Bước 3: Khởi động Server
 
 java WeatherAlertServerAuto
 
 
-Giao diện server xuất hiện với các nút Start/Stop và ô log.
+Giao diện Server xuất hiện với các nút: Start / Stop, và bảng log.
 
-Nhấn Start → server sẽ gửi cảnh báo thời tiết tự động đến nhóm multicast 239.255.0.1:4446 mỗi 5 giây.
+Nhấn Start → server gửi cảnh báo tự động tới multicast 239.255.0.1:4446 mỗi 5 giây.
 
-Khởi động Client
-
-Mở terminal khác, chạy lệnh:
+Bước 4: Khởi động Client
 
 java WeatherAlertClient
 
 
-Giao diện Admin Login xuất hiện. Nhập:
+Màn hình Admin Login:
 
 Username: admin
 
 Password: 123456
 
-Sau khi đăng nhập thành công, cửa sổ Weather Alert Client sẽ hiện ra:
+Đăng nhập → cửa sổ Client xuất hiện.
 
-Nhấn Start Client để bắt đầu nhận cảnh báo.
+Nhấn Start Client để nhận cảnh báo thời gian thực.
 
-Cảnh báo sẽ hiển thị theo thời gian thực trên bảng.
+Chức năng chính
 
-Có thể sử dụng ô tìm kiếm để lọc theo tên thành phố.
-
-Các cảnh báo quan trọng (bão, mưa lớn, lũ…) sẽ hiển thị popup và đổi màu trong bảng.
-
-🚀 Sử dụng ứng dụng
 Server
 
 Start: Bắt đầu gửi dữ liệu thời gian thực.
 
 Stop: Dừng gửi dữ liệu.
 
-Log: Hiển thị trực tiếp các bản tin đã gửi trên giao diện.
+Log: Hiển thị các bản tin đã gửi.
 
 Client
 
-Start Client: Nhận cảnh báo từ server tự động.
+Hiển thị cảnh báo trên bảng theo thời gian thực.
 
-Stop Client: Ngắt kết nối.
+Lọc thông tin theo tên thành phố.
 
-Tìm kiếm: Lọc thông tin theo thành phố.
+Cảnh báo quan trọng (bão, mưa lớn…) hiển thị popup và đổi màu để dễ nhận biết.
+
 
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu  
