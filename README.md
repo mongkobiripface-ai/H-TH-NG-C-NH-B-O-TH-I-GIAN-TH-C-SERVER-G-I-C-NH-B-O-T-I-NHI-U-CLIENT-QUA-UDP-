@@ -136,66 +136,57 @@ Xử lý lắng nghe dữ liệu từ server ở client.
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
 
-# 🛡 Hệ thống cảnh báo an ninh thời gian thực
 
-Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh theo thời gian thực, gồm **Server** và **Client**.  
+
+🛡 Hệ thống cảnh báo an ninh thời gian thực
+
+Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh theo thời gian thực, gồm Server và Client.
 Server gửi cảnh báo qua mạng multicast, Client tự động nhận và hiển thị cảnh báo với GUI trực quan.
 
----
+🔧 Yêu cầu hệ thống
+Yêu cầu	Chi tiết
+Java Development Kit (JDK)	Phiên bản 8 trở lên
+Hệ điều hành	Windows, macOS hoặc Linux
+Môi trường phát triển	IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal
+Bộ nhớ RAM	Tối thiểu 512MB
+Dung lượng	Khoảng 10MB cho mã nguồn và file thực thi
+⚙️ Bước 1: Chuẩn bị môi trường
 
-## 🔧 Yêu cầu hệ thống
-
-| Yêu cầu                    | Chi tiết                                   |
-|----------------------------|-------------------------------------------|
-| Java Development Kit (JDK) | Phiên bản 8 trở lên                        |
-| Hệ điều hành               | Windows, macOS hoặc Linux                 |
-| Môi trường phát triển       | IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal |
-| Bộ nhớ RAM                  | Tối thiểu 512MB                           |
-| Dung lượng                  | Khoảng 10MB cho mã nguồn và file thực thi |
-
----
-
-# Bước 1: Chuẩn bị môi trường
 Kiểm tra Java:
-```bash
+
 java -version
 javac -version
+
+
 Đảm bảo cả hai lệnh hiển thị Java 8 trở lên.
 
 Sao chép thư mục chứa các file:
 
 SecurityAlertServer.java
-
 SecurityAlertClient.java
-
 config.properties (nếu có)
 
- Bước 2: Biên dịch mã nguồn
-bash
-Sao chép mã
+⚙️ Bước 2: Biên dịch mã nguồn
 javac *.java
-Hoặc biên dịch riêng:
-
-bash
-Sao chép mã
+# Hoặc biên dịch riêng:
 javac SecurityAlertServer.java
 javac SecurityAlertClient.java
+
+
 File .class sẽ được tạo nếu biên dịch thành công.
 
-Bước 3: Chạy ứng dụng
+⚙️ Bước 3: Chạy ứng dụng
 Server
-bash
-Sao chép mã
 java SecurityAlertServer
+
+
 GUI server hiển thị.
 
 Nhấn Start: gửi cảnh báo tự động (mỗi 3 giây).
 
-Nhấn Thêm cảnh báo ngẫu nhiên hoặc ➕ Nhập tay để gửi thủ công.
+Nhấn Thêm cảnh báo ngẫu nhiên hoặc nhập tay để gửi thủ công.
 
 Nhấn Stop để dừng server.
-
-Lịch sử cảnh báo hiển thị trực tiếp trên GUI.
 
 Mức độ cảnh báo & màu trên GUI:
 
@@ -204,27 +195,17 @@ LOW	Xanh lá
 MEDIUM	Vàng
 HIGH	Cam
 CRITICAL/EMERGENCY	Đỏ + beep + popup
-
 Client
-bash
-Sao chép mã
 java SecurityAlertClient
+
+
 Tự động tham gia nhóm multicast 230.0.0.1:4446.
 
-Hiển thị cảnh báo theo thời gian, tự động cuộn xuống dòng mới nhất.
+Hiển thị cảnh báo theo thời gian thực, tự động cuộn xuống dòng mới nhất.
 
-Các cảnh báo CRITICAL/EMERGENCY kèm beep và popup.
+Cảnh báo CRITICAL/EMERGENCY kèm beep và popup.
 
-Nhấn đóng ứng dụng để thoát.
-
-📄 Lịch sử cảnh báo
-File log: Weather_alerts.log
-Nếu log lặp nhiều, sẽ tạo thêm Weather_alerts2.log, Weather_alerts3.log.
-
-Thời gian	Mức độ	Loại cảnh báo	Khu vực	Chi tiết
-2025-10-01 14:30:05	LOW	Weather	Hà Nội	Nhiệt độ giảm xuống 18°C
-2025-10-01 14:33:08	HIGH	Security	Khu A	Xâm nhập trái phép
-2025-10-01 14:35:12	CRITICAL	Fire Alarm	Khu B	Cháy tại tầng 2
+Nhấn Đóng để thoát ứng dụng.
 
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu.  
