@@ -136,8 +136,6 @@ Xử lý lắng nghe dữ liệu từ server ở client.
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
 
-
-
 🛡 Hệ thống cảnh báo an ninh thời gian thực
 
 Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh theo thời gian thực, gồm Server và Client.
@@ -226,6 +224,11 @@ Cảnh báo CRITICAL/EMERGENCY kèm beep và popup.
 
 Nhấn Đóng để thoát ứng dụng.
 
+💡 Mẹo GitHub
+
+Dùng code block với ngôn ngữ (bash hoặc text) để chữ sáng, đồng nhất.
+
+README gọn, chuyên nghiệp, dễ đọc, không cần hình ảnh.
 
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu.  
