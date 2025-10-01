@@ -22,49 +22,59 @@
 
 ## 📖 1. Giới thiệu hệ thống
 
-Hệ thống Cảnh báo an ninh thời gian thực sử dụng giao thức UDP Multicast cho phép Server gửi các cảnh báo đến nhiều Client đồng thời, đảm bảo thông tin sự cố được lan truyền ngay lập tức.
+🖥️ Server
 
-Server: Phát sinh hoặc thu thập cảnh báo an ninh (cháy nổ, xâm nhập, sự cố kỹ thuật, …) và gửi theo cơ chế multicast.
+Server có nhiệm vụ phát sinh hoặc thu thập cảnh báo an ninh (cháy nổ, xâm nhập, sự cố kỹ thuật, …) và gửi đến các client qua multicast.
 
-Client: Tham gia nhóm multicast, nhận dữ liệu và hiển thị cảnh báo trên giao diện GUI trực quan với màu sắc và biểu tượng tùy theo mức độ.
+📌 Chức năng:
 
-Lưu trữ: Các sự kiện được ghi vào log (trên GUI và file văn bản) để tiện theo dõi và tra cứu lịch sử.
+🚨 Phát cảnh báo: Gửi thông tin cảnh báo an ninh (thời gian, mức độ, loại, khu vực, chi tiết).
 
-🖥️ Chức năng của Server
+🗂️ Quản lý log: Ghi lại lịch sử cảnh báo vào file hoặc hiển thị trên giao diện log.
 
-Phát cảnh báo: Gửi thông tin cảnh báo an ninh (thời gian, mức độ, loại, khu vực, chi tiết) đến tất cả client qua multicast.
+⚠️ Xử lý lỗi: Hiển thị & lưu lỗi kết nối, gửi/nhận dữ liệu.
 
-Quản lý log: Ghi lại lịch sử cảnh báo vào file hoặc giao diện log.
+🖥️ Giao diện GUI: Quản lý server, theo dõi danh sách cảnh báo đã gửi.
 
-Xử lý lỗi: Hiển thị và ghi lại lỗi kết nối, gửi/nhận dữ liệu.
+💻 Client
 
-Giao diện GUI: Cho phép quản lý server, theo dõi danh sách cảnh báo đã gửi.
+Client tham gia nhóm multicast để nhận dữ liệu và hiển thị cảnh báo trực quan trên GUI.
 
-💻 Chức năng của Client
+📌 Chức năng:
 
-Kết nối multicast: Tham gia vào nhóm multicast 230.0.0.1:4446 để nhận dữ liệu từ server.
+🌐 Kết nối multicast: Tham gia nhóm 230.0.0.1:4446 để nhận dữ liệu từ server.
 
-Hiển thị cảnh báo: Trình bày cảnh báo trong bảng (JTable) với màu sắc + biểu tượng riêng cho từng mức độ (LOW, MEDIUM, HIGH, CRITICAL, EMERGENCY).
+📊 Hiển thị cảnh báo: Trình bày trong bảng (JTable) kèm màu sắc & biểu tượng cho từng mức độ:
 
-Thông báo tức thì: Với cảnh báo nghiêm trọng (CRITICAL, EMERGENCY), hệ thống bật âm thanh beep và hiện popup.
+LOW 🟢 | MEDIUM 🟡 | HIGH 🟠 | CRITICAL 🔴 | EMERGENCY 🚨
 
-Lưu trữ log: Hiển thị nhật ký hoạt động trên GUI và lưu kèm thời gian.
+🔔 Thông báo tức thì: Cảnh báo nghiêm trọng (CRITICAL, EMERGENCY) sẽ phát âm thanh và popup cảnh báo.
 
-Tìm kiếm / lọc dữ liệu: Cho phép nhập từ khóa để tìm kiếm nhanh trong danh sách cảnh báo.
+📑 Lưu trữ log: Ghi nhật ký hoạt động đầy đủ với thời gian.
 
-Chế độ test: Có sẵn nút “Test Alert” để mô phỏng cảnh báo ngay cả khi chưa kết nối server.
+🔍 Tìm kiếm / lọc: Nhập từ khóa để lọc nhanh trong bảng cảnh báo.
 
-🌐 Chức năng hệ thống
+🧪 Chế độ test: Có sẵn nút Test Alert để giả lập cảnh báo khi chưa kết nối server.
 
-UDP Multicast: Giao tiếp qua nhóm 230.0.0.1:4446 bằng MulticastSocket.
+🌐 Hệ thống chung
 
-Định dạng dữ liệu: Dữ liệu cảnh báo được truyền dưới dạng chuỗi time|level|type|area|detail.
+📡 UDP Multicast: Giao tiếp qua nhóm 230.0.0.1:4446 bằng MulticastSocket.
 
-Biểu tượng trực quan: Mỗi mức độ cảnh báo hiển thị icon riêng (vòng tròn màu, tam giác cảnh báo).
+📝 Định dạng dữ liệu: time | level | type | area | detail.
 
-Lưu trữ file: Toàn bộ cảnh báo ghi vào file log kèm dấu thời gian.
+🎨 Biểu tượng trực quan: Icon riêng cho từng mức cảnh báo (vòng tròn màu, tam giác cảnh báo).
 
-Xử lý lỗi: Hệ thống thông báo rõ ràng khi có sự cố mạng/kết nối.
+💾 Lưu file log: Ghi toàn bộ cảnh báo kèm timestamp.
+
+⚡ Xử lý lỗi: Hệ thống báo lỗi rõ ràng khi có sự cố mạng/kết nối.
+
+👉 Với cách trình bày này:
+
+Tiêu đề rõ ràng với icon.
+
+Các chức năng gạch đầu dòng dễ đọc.
+
+Mức độ cảnh báo có màu + emoji để trực quan hơn.
 
 
 
