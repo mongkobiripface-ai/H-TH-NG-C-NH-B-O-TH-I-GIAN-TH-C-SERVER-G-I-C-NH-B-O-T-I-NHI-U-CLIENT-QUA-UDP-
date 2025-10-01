@@ -136,20 +136,48 @@ Xử lý lắng nghe dữ liệu từ server ở client.
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
 
-# Hệ thống cảnh báo an ninh thời gian thực
+# 🛡 Hệ thống cảnh báo an ninh thời gian thực
 
-### 🔧 Yêu cầu hệ thống
+Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh theo thời gian thực, bao gồm **Server** và **Client**. Server gửi cảnh báo qua mạng multicast, Client tự động nhận và hiển thị cảnh báo với GUI trực quan.
 
-- **Java Development Kit (JDK)**: Phiên bản 8 trở lên  
-- **Hệ điều hành**: Windows, macOS hoặc Linux  
-- **Môi trường phát triển**: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt  
-- **Bộ nhớ**: Tối thiểu 512MB RAM  
-- **Dung lượng**: Khoảng 10MB cho mã nguồn và file thực thi  
+---
 
-### 📦 Cài đặt và triển khai
+## 🔧 Yêu cầu hệ thống
 
-#### Bước 1: Chuẩn bị môi trường
-1. **Kiểm tra Java**: Mở terminal/command prompt và chạy:
+| Yêu cầu | Chi tiết |
+|---------|---------|
+| **Java Development Kit (JDK)** | Phiên bản 8 trở lên |
+| **Hệ điều hành** | Windows, macOS hoặc Linux |
+| **Môi trường phát triển** | IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt |
+| **Bộ nhớ RAM** | Tối thiểu 512MB |
+| **Dung lượng** | Khoảng 10MB cho mã nguồn và file thực thi |
+
+---
+
+## 📦 Cài đặt và triển khai
+
+# 🛡 Hệ thống cảnh báo an ninh thời gian thực
+
+Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh theo thời gian thực, bao gồm **Server** và **Client**. Server gửi cảnh báo qua mạng multicast, Client tự động nhận và hiển thị cảnh báo với GUI trực quan.
+
+---
+
+## 🔧 Yêu cầu hệ thống
+
+| Yêu cầu | Chi tiết |
+|---------|---------|
+| **Java Development Kit (JDK)** | Phiên bản 8 trở lên |
+| **Hệ điều hành** | Windows, macOS hoặc Linux |
+| **Môi trường phát triển** | IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt |
+| **Bộ nhớ RAM** | Tối thiểu 512MB |
+| **Dung lượng** | Khoảng 10MB cho mã nguồn và file thực thi |
+
+---
+
+## 📦 Cài đặt và triển khai
+
+### Bước 1: Chuẩn bị môi trường
+1. **Kiểm tra Java**:
 ```bash
 java -version
 javac -version
@@ -160,6 +188,8 @@ Tải mã nguồn: Sao chép thư mục chứa các file:
 SecurityAlertServer.java
 
 SecurityAlertClient.java
+
+config.properties (nếu có, dùng cho cấu hình mặc định)
 
 Bước 2: Biên dịch mã nguồn
 Mở terminal và điều hướng đến thư mục chứa mã nguồn.
@@ -175,7 +205,7 @@ bash
 Sao chép mã
 javac SecurityAlertServer.java
 javac SecurityAlertClient.java
-Kiểm tra kết quả: Nếu biên dịch thành công, sẽ tạo ra các file .class tương ứng.
+Kiểm tra kết quả: Nếu biên dịch thành công, các file .class sẽ được tạo ra.
 
 Bước 3: Chạy ứng dụng
 Khởi động Server:
@@ -183,9 +213,9 @@ Khởi động Server:
 bash
 Sao chép mã
 java SecurityAlertServer
-Giao diện server sẽ hiển thị.
+GUI server sẽ hiển thị.
 
-Nhấn Start để bắt đầu gửi cảnh báo tự động (mỗi 3 giây trong phiên bản test).
+Nhấn Start để bắt đầu gửi cảnh báo tự động (mỗi 3 giây trong chế độ test).
 
 Nhấn Thêm cảnh báo ngẫu nhiên để gửi cảnh báo thủ công.
 
@@ -193,7 +223,7 @@ Nhấn ➕ Nhập tay để nhập cảnh báo thủ công.
 
 Nhấn Stop để dừng server.
 
-Log cảnh báo được hiển thị trên GUI và lịch sử gửi cảnh báo được lưu trực tiếp trong GUI.
+Log cảnh báo được hiển thị trực tiếp trên GUI.
 
 Khởi động Client:
 
@@ -204,14 +234,13 @@ Mở terminal mới cho mỗi client.
 
 Client tự động tham gia nhóm multicast 230.0.0.1:4446 và hiển thị cảnh báo thời gian thực.
 
-Các cảnh báo CRITICAL hoặc EMERGENCY sẽ kèm beep và popup.
+Cảnh báo CRITICAL hoặc EMERGENCY kèm beep và popup thông báo.
 
-🚀 Sử dụng ứng dụng
-Server:
-
+🚀 Hướng dẫn sử dụng
+1️⃣ Server
 Nhập thông tin cảnh báo thủ công nếu cần.
 
-Chọn mức độ, loại cảnh báo, khu vực, và chi tiết.
+Chọn Mức độ, Loại cảnh báo, Khu vực, và Chi tiết.
 
 Nhấn Start để gửi cảnh báo tự động.
 
@@ -219,25 +248,27 @@ Nhấn Thêm cảnh báo ngẫu nhiên hoặc ➕ Nhập tay để gửi thủ c
 
 Nhấn Stop để dừng server.
 
-Log và lịch sử cảnh báo được hiển thị trên GUI.
+Lịch sử cảnh báo hiển thị trên GUI, giúp theo dõi các cảnh báo đã gửi.
 
-Client:
+Mức độ cảnh báo & màu sắc hiển thị:
 
+Mức độ	Màu hiển thị
+LOW	Xanh lá
+MEDIUM	Vàng
+HIGH	Cam
+CRITICAL / EMERGENCY	Đỏ (kèm beep và popup)
+
+2️⃣ Client
 Tự động nhận và hiển thị cảnh báo từ server.
 
-Cảnh báo hiển thị màu sắc theo mức độ:
+Cảnh báo được sắp xếp theo thời gian, tự động cuộn xuống dòng mới nhất.
 
-LOW: xanh lá
-
-MEDIUM: vàng
-
-HIGH: cam
-
-CRITICAL / EMERGENCY: đỏ (kèm beep và popup)
-
-Tự động cuộn xuống dòng mới nhất.
+Các cảnh báo nghiêm trọng (CRITICAL/EMERGENCY) kèm beep và popup thông báo.
 
 Nhấn đóng ứng dụng để thoát.
+
+Log cảnh báo được lưu vào file Weather_alerts.log (hoặc Weather_alerts2.log, Weather_alerts3.log nếu có nhiều client).
+
 ## 📚 5. Thông tin liên hệ
 Họ tên: Lê Đức Khánh Long.  
 Lớp: CNTT 16-03.  
