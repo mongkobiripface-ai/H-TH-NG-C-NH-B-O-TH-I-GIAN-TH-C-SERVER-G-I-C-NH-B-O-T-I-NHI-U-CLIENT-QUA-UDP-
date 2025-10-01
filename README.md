@@ -145,16 +145,16 @@ Server gửi cảnh báo qua mạng UDP Multicast, Client tự động nhận v�
 
 🔧 Yêu cầu hệ thống
 Yêu cầu	Chi tiết
-Java Development Kit (JDK)	Phiên bản 8 trở lên
-Hệ điều hành	Windows, macOS hoặc Linux
-Môi trường phát triển	IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal
-Bộ nhớ RAM	Tối thiểu 512MB
-Dung lượng	Khoảng 10MB cho mã nguồn và file thực thi
+☕ Java Development Kit (JDK)	Phiên bản 8 trở lên
+🖥️ Hệ điều hành	Windows, macOS hoặc Linux
+🛠️ Môi trường phát triển	IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal
+💾 Bộ nhớ RAM	Tối thiểu 512MB
+📦 Dung lượng	Khoảng 10MB cho mã nguồn và file thực thi
 🔧 Công nghệ sử dụng
 
 ☕ Java: Ngôn ngữ chính phát triển hệ thống.
 
-📡 UDP Multicast: Sử dụng MulticastSocket, DatagramPacket, InetAddress để gửi/nhận dữ liệu, cho phép server gửi cảnh báo đồng thời đến nhiều client.
+📡 UDP Multicast: Sử dụng MulticastSocket, DatagramPacket, InetAddress để gửi/nhận dữ liệu.
 
 🖥️ Java Swing: GUI cho Server và Client (JFrame, JTable, JButton, JTextArea, JScrollPane).
 
@@ -164,12 +164,12 @@ Dung lượng	Khoảng 10MB cho mã nguồn và file thực thi
 
 ⏱️ Timer & TimerTask: Gửi dữ liệu cảnh báo định kỳ từ Server.
 
-🔄 Đa luồng (Thread): Lắng nghe dữ liệu từ server, giữ GUI luôn mượt mà.
+🔄 Đa luồng (Thread): Lắng nghe dữ liệu từ server, giữ GUI mượt mà.
 
 🎨 Xử lý sự kiện GUI: Điều khiển nút Start/Stop server, Join/Leave multicast client.
 
-⚙️ Hướng dẫn cài đặt và sử dụng
-Bước 1: Chuẩn bị môi trường
+⚙️ Hướng dẫn cài đặt & sử dụng
+1️⃣ Chuẩn bị môi trường
 
 Kiểm tra Java:
 
@@ -185,7 +185,7 @@ SecurityAlertServer.java
 SecurityAlertClient.java
 config.properties (nếu có)
 
-Bước 2: Biên dịch mã nguồn
+2️⃣ Biên dịch mã nguồn
 javac *.java
 # Hoặc biên dịch riêng:
 javac SecurityAlertServer.java
@@ -194,8 +194,8 @@ javac SecurityAlertClient.java
 
 File .class sẽ được tạo nếu biên dịch thành công.
 
-Bước 3: Chạy ứng dụng
-Server
+3️⃣ Chạy ứng dụng
+🔹 Server
 java SecurityAlertServer
 
 
@@ -214,7 +214,7 @@ LOW	Xanh lá
 MEDIUM	Vàng
 HIGH	Cam
 CRITICAL/EMERGENCY	Đỏ + beep + popup
-Client
+🔹 Client
 java SecurityAlertClient
 
 
