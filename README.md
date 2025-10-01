@@ -123,7 +123,7 @@ Xử lý lắng nghe dữ liệu từ server ở client.
   <img src="hinh3.png" alt="Hình 3" width="450"/>
 </p>
 <p align="center">
-  <em>Hình 3: Lịch sử cảnh báo được lưu vào file weather_alerts.log</em>
+  <em>Hình 3: Lịch sử cảnh báo được lưu vào Server_alerts.log</em>
 </p>
 
 <p align="center">
