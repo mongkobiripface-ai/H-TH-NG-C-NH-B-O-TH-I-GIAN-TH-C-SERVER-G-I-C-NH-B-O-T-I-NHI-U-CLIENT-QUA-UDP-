@@ -74,30 +74,33 @@ LOW 🟢 | MEDIUM 🟡 | HIGH 🟠 | CRITICAL 🔴 | EMERGENCY 🚨
 ## 🔧 2. Công nghệ sử dụng
 
 
+☕ Java: Ngôn ngữ chính để phát triển hệ thống.
 
+📡 UDP Multicast:
 
-Các công nghệ được sử dụng để xây dựng hệ thống cảnh báo thời gian thực:  
+Sử dụng MulticastSocket, DatagramPacket, InetAddress để gửi và nhận dữ liệu.
 
-**Java Core và Multithreading: Sử dụng Timer và Thread để định kỳ gửi cảnh báo và xử lý kết nối mạng.**  
+Cho phép server gửi cảnh báo đồng thời đến nhiều client trong nhóm multicast.
 
-**Java Swing: Xây dựng giao diện người dùng cho cả server và client.**
+🖥️ Java Swing:
 
-**Java Sockets (UDP): Sử dụng DatagramSocket và MulticastSocket cho giao thức UDP multicast.**
+Tạo giao diện đồ họa trực quan (GUI) cho Server và Client.
 
-**File I/O: Ghi lịch sử cảnh báo vào file văn bản (weather_alerts.log).**
+Thành phần sử dụng: JFrame, JTable, JButton, JTextArea, JScrollPane.
 
-**JSON Processing: Sử dụng thư viện org.json để xử lý dữ liệu thời tiết từ API.**
+📑 DefaultTableModel: Quản lý dữ liệu cảnh báo và hiển thị trong bảng.
 
-Hỗ trợ:  
+📁 File I/O: Ghi lại lịch sử cảnh báo vào file weather_alerts.log.
 
-**java.net và java.io: Xử lý kết nối mạng và đọc/ghi file.**
+⏱️ Timer & TimerTask: Tạo và gửi dữ liệu cảnh báo định kỳ từ Server.
 
-**java.text.SimpleDateFormat: Tạo dấu thời gian cho các bản ghi log.**  
+🔄 Đa luồng (Thread):
 
-**javax.swing.text.html: Hiển thị log với định dạng HTML (màu sắc, biểu tượng).** 
+Xử lý lắng nghe dữ liệu từ server ở client.
 
-Không sử dụng cơ sở dữ liệu, đảm bảo ứng dụng nhẹ và dễ triển khai.
+Đảm bảo giao diện GUI luôn phản hồi mượt mà.
 
+🎨 Xử lý sự kiện GUI: Điều khiển nút Start/Stop server, Join/Leave multicast client.
 
 
 
