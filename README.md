@@ -136,107 +136,108 @@ Xử lý lắng nghe dữ liệu từ server ở client.
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
 
+# Hệ thống cảnh báo an ninh thời gian thực
+
 ### 🔧 Yêu cầu hệ thống
 
-- **Java Development Kit (JDK)**: Phiên bản 8 trở lên
-- **Hệ điều hành**: Windows, macOS, hoặc Linux
-- **Môi trường phát triển**: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt
-- **Bộ nhớ**: Tối thiểu 512MB RAM
-- **Dung lượng**: Khoảng 10MB cho mã nguồn và file thực thi
-- **Tệp cấu hình**: File config.properties chứa API key và URL của OpenWeather API.
+- **Java Development Kit (JDK)**: Phiên bản 8 trở lên  
+- **Hệ điều hành**: Windows, macOS hoặc Linux  
+- **Môi trường phát triển**: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt  
+- **Bộ nhớ**: Tối thiểu 512MB RAM  
+- **Dung lượng**: Khoảng 10MB cho mã nguồn và file thực thi  
 
-
-
-
-## 📦 Cài đặt và triển khai
+### 📦 Cài đặt và triển khai
 
 #### Bước 1: Chuẩn bị môi trường
 1. **Kiểm tra Java**: Mở terminal/command prompt và chạy:
-   ```bash
-   java -version
-   javac -version
-   ```
-
-Đảm bảo cả hai lệnh đều hiển thị phiên bản Java 8 trở lên.
-
-2. **Tải mã nguồn**: Sao chép thư mục `BTL` chứa các file:
-- `AlertServer.java`
-- `AlertServerGUI.java`
-- `AlertClientGUI.java`
-- `AlertClientGUI2.java`
-- `AlertClientGUI3.java`
-- `Config.java`
-- `config.properties (cần cấu hình WEATHER_API_KEY và WEATHER_API_URL).`
-
-
-
-Cấu hình file config.properties:
-- `WEATHER_API_KEY=your_openweather_api_key`
-- `WEATHER_API_URL=http://api.openweathermap.org/data/2.5/forecast`
-- `DEFAULT_CITY=Hanoi,vn`
-
-
-#### Bước 2: Biên dịch mã nguồn
-
-1. **Mở terminal** và điều hướng đến thư mục chứa mã nguồn
-2. **Biên dịch các file Java**:
-   ```bash
-   javac Alert/*.java
-   ```
-   Hoặc biên dịch từng file riêng lẻ:
-   ```bash
-   javac Alert/AlertServer.java
-   javac Alert/AlertServerGUI.java
-   javac Alert/AlertClientGUI.java
-   javac Alert/AlertClientGUI2.java
-   javac Alert/AlertClientGUI3.java
-   javac Alert/Config.java
-   ```
-
-3. **Kiểm tra kết quả**: Nếu biên dịch thành công, sẽ tạo ra các file `.class` tương ứng.
-
-
-
-#### Bước 3: Chạy ứng dụng
-
-**Khởi động Server:**
 ```bash
-java Alert.AlertServerGUI
-```
-- Giao diện server sẽ hiển thị.
-- Nhập tên thành phố (ví dụ: Hanoi,vn) và nhấn "Start Server".
-- Server sẽ gửi cảnh báo đến nhóm multicast 239.255.0.1:4446 mỗi 5 phút.
+java -version
+javac -version
+Đảm bảo cả hai lệnh hiển thị phiên bản Java 8 trở lên.
 
-**Khởi động Client:**
-```bash
-java Alert.AlertClientGUI
-java Alert.AlertClientGUI2
-java Alert.AlertClientGUI3
-```
+Tải mã nguồn: Sao chép thư mục chứa các file:
 
-- Mở terminal mới cho mỗi client.
-- Client tự động tham gia nhóm multicast và hiển thị các cảnh báo thời tiết.
+SecurityAlertServer.java
 
-### 🚀 Sử dụng ứng dụng
+SecurityAlertClient.java
 
-1.**Server:**
+Bước 2: Biên dịch mã nguồn
+Mở terminal và điều hướng đến thư mục chứa mã nguồn.
 
-- Nhập tên thành phố vào ô nhập liệu.
-- Chọn loại cảnh báo, mức độ nghiêm trọng, khoảng thời gian, nội dung tùy chỉnh.
-- Nhấn "Khởi động Server" để bắt đầu gửi cảnh báo.
-- Nhấn "Gửi Cảnh báo Thủ công" để gửi thủ công đến cổng được chọn.
-- Nhấn "Gửi đến Tất cả Client" để gửi đến tất cả client cùng lúc.
-- Nhấn "Dừng Server" để dừng.
-- Log cảnh báo được hiển thị trên GUI và lưu vào file weather_alerts.log.
-- Lịch sử gửi cảnh báo được hiển thị trong vùng "Lịch sử Gửi Cảnh báo".
+Biên dịch tất cả file Java:
 
+bash
+Sao chép mã
+javac *.java
+Hoặc biên dịch từng file riêng lẻ:
 
-2.**Client:**
+bash
+Sao chép mã
+javac SecurityAlertServer.java
+javac SecurityAlertClient.java
+Kiểm tra kết quả: Nếu biên dịch thành công, sẽ tạo ra các file .class tương ứng.
 
-- Tự động nhận và hiển thị các cảnh báo thời tiết từ server.
-- Nhấn "Dừng ứng dụng" để ngắt kết nối và thoát.
-- Các cảnh báo được lưu vào file weather_alerts.log (hoặc weather_alerts2.log, weather_alerts3.log cho client khác).
+Bước 3: Chạy ứng dụng
+Khởi động Server:
 
+bash
+Sao chép mã
+java SecurityAlertServer
+Giao diện server sẽ hiển thị.
+
+Nhấn Start để bắt đầu gửi cảnh báo tự động (mỗi 3 giây trong phiên bản test).
+
+Nhấn Thêm cảnh báo ngẫu nhiên để gửi cảnh báo thủ công.
+
+Nhấn ➕ Nhập tay để nhập cảnh báo thủ công.
+
+Nhấn Stop để dừng server.
+
+Log cảnh báo được hiển thị trên GUI và lịch sử gửi cảnh báo được lưu trực tiếp trong GUI.
+
+Khởi động Client:
+
+bash
+Sao chép mã
+java SecurityAlertClient
+Mở terminal mới cho mỗi client.
+
+Client tự động tham gia nhóm multicast 230.0.0.1:4446 và hiển thị cảnh báo thời gian thực.
+
+Các cảnh báo CRITICAL hoặc EMERGENCY sẽ kèm beep và popup.
+
+🚀 Sử dụng ứng dụng
+Server:
+
+Nhập thông tin cảnh báo thủ công nếu cần.
+
+Chọn mức độ, loại cảnh báo, khu vực, và chi tiết.
+
+Nhấn Start để gửi cảnh báo tự động.
+
+Nhấn Thêm cảnh báo ngẫu nhiên hoặc ➕ Nhập tay để gửi thủ công.
+
+Nhấn Stop để dừng server.
+
+Log và lịch sử cảnh báo được hiển thị trên GUI.
+
+Client:
+
+Tự động nhận và hiển thị cảnh báo từ server.
+
+Cảnh báo hiển thị màu sắc theo mức độ:
+
+LOW: xanh lá
+
+MEDIUM: vàng
+
+HIGH: cam
+
+CRITICAL / EMERGENCY: đỏ (kèm beep và popup)
+
+Tự động cuộn xuống dòng mới nhất.
+
+Nhấn đóng ứng dụng để thoát.
 ## 📚 5. Thông tin liên hệ
 Họ tên: Lê Đức Khánh Long.  
 Lớp: CNTT 16-03.  
