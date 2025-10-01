@@ -116,14 +116,14 @@ Xử lý lắng nghe dữ liệu từ server ở client.
   <img src="hinh2.png" alt="Hình 2" width="700"/>
 </p>
 <p align="center">
-  <em>Hình 2: Giao diện Client hiển thị cảnh báo thời tiết</em>
+  <em>Hình 2: Giao diện Client hiển thị cảnh báo </em>
 </p>
 
 <p align="center">
   <img src="hinh3.png" alt="Hình 3" width="450"/>
 </p>
 <p align="center">
-  <em>Hình 3: Lịch sử cảnh báo được lưu vào Server_alerts.log</em>
+  <em>Hình 3: Lịch sử cảnh báo được lưu vào Server</em>
 </p>
 
 <p align="center">
