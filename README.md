@@ -271,6 +271,9 @@ Log cảnh báo được lưu vào file Weather_alerts.log (hoặc Weather_alert
 
   
 
+
+
+
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu.  
 Lớp: CNTT 16-01.  
