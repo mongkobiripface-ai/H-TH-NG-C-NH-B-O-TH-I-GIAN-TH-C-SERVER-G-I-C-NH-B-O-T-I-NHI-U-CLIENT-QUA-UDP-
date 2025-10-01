@@ -141,7 +141,7 @@ Xử lý lắng nghe dữ liệu từ server ở client.
 🛡 Hệ thống cảnh báo an ninh thời gian thực
 
 Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh theo thời gian thực, gồm Server và Client.
-Server gửi cảnh báo qua mạng multicast, Client tự động nhận và hiển thị cảnh báo với GUI trực quan.
+Server gửi cảnh báo qua mạng UDP Multicast, Client tự động nhận và hiển thị cảnh báo với GUI trực quan.
 
 🔧 Yêu cầu hệ thống
 Yêu cầu	Chi tiết
@@ -150,7 +150,26 @@ Hệ điều hành	Windows, macOS hoặc Linux
 Môi trường phát triển	IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal
 Bộ nhớ RAM	Tối thiểu 512MB
 Dung lượng	Khoảng 10MB cho mã nguồn và file thực thi
-⚙️ Bước 1: Chuẩn bị môi trường
+🔧 Công nghệ sử dụng
+
+☕ Java: Ngôn ngữ chính phát triển hệ thống.
+
+📡 UDP Multicast: Sử dụng MulticastSocket, DatagramPacket, InetAddress để gửi/nhận dữ liệu, cho phép server gửi cảnh báo đồng thời đến nhiều client.
+
+🖥️ Java Swing: GUI cho Server và Client (JFrame, JTable, JButton, JTextArea, JScrollPane).
+
+📑 DefaultTableModel: Quản lý dữ liệu cảnh báo và hiển thị trong bảng.
+
+📁 File I/O: Ghi lại lịch sử cảnh báo (tùy chọn).
+
+⏱️ Timer & TimerTask: Gửi dữ liệu cảnh báo định kỳ từ Server.
+
+🔄 Đa luồng (Thread): Lắng nghe dữ liệu từ server, giữ GUI luôn mượt mà.
+
+🎨 Xử lý sự kiện GUI: Điều khiển nút Start/Stop server, Join/Leave multicast client.
+
+⚙️ Hướng dẫn cài đặt và sử dụng
+Bước 1: Chuẩn bị môi trường
 
 Kiểm tra Java:
 
@@ -166,7 +185,7 @@ SecurityAlertServer.java
 SecurityAlertClient.java
 config.properties (nếu có)
 
-⚙️ Bước 2: Biên dịch mã nguồn
+Bước 2: Biên dịch mã nguồn
 javac *.java
 # Hoặc biên dịch riêng:
 javac SecurityAlertServer.java
@@ -175,7 +194,7 @@ javac SecurityAlertClient.java
 
 File .class sẽ được tạo nếu biên dịch thành công.
 
-⚙️ Bước 3: Chạy ứng dụng
+Bước 3: Chạy ứng dụng
 Server
 java SecurityAlertServer
 
@@ -206,6 +225,8 @@ Hiển thị cảnh báo theo thời gian thực, tự động cuộn xuống d�
 Cảnh báo CRITICAL/EMERGENCY kèm beep và popup.
 
 Nhấn Đóng để thoát ứng dụng.
+
+
 
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu.  
