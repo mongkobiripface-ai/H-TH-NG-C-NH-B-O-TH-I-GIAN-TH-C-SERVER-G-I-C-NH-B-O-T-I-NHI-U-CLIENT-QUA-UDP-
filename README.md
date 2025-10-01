@@ -170,8 +170,7 @@ SecurityAlertClient.java
 
 config.properties (nếu có)
 
-Bước 2: Biên dịch mã nguồn
-
+ Bước 2: Biên dịch mã nguồn
 bash
 Sao chép mã
 javac *.java
@@ -184,7 +183,6 @@ javac SecurityAlertClient.java
 File .class sẽ được tạo nếu biên dịch thành công.
 
 Bước 3: Chạy ứng dụng
-
 Server
 bash
 Sao chép mã
@@ -227,7 +225,6 @@ Thời gian	Mức độ	Loại cảnh báo	Khu vực	Chi tiết
 2025-10-01 14:30:05	LOW	Weather	Hà Nội	Nhiệt độ giảm xuống 18°C
 2025-10-01 14:33:08	HIGH	Security	Khu A	Xâm nhập trái phép
 2025-10-01 14:35:12	CRITICAL	Fire Alarm	Khu B	Cháy tại tầng 2
-
 
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu.  
