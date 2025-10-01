@@ -3,3 +3,5 @@ HỆ THỐNG CẢNH BÁO THỜI GIAN THỰC (SERVER GỬI CẢNH BÁO TỚI NHI�
 AIoTLab Logo AIoTLab Logo DaiNam University Logo
 
 AIoTLab Faculty of Information Technology DaiNam University
+
+📖 1. Giới thiệu hệ thống
