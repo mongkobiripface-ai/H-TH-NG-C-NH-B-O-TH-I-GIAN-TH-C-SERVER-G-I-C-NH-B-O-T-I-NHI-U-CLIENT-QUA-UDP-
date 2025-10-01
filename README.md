@@ -22,37 +22,49 @@
 
 ## 📖 1. Giới thiệu hệ thống
 
-Hệ thống cảnh báo thời gian thực sử dụng giao thức UDP cho phép server gửi các cảnh báo thời tiết đến nhiều client theo thời gian thực thông qua cơ chế multicast.
+Hệ thống Cảnh báo an ninh thời gian thực sử dụng giao thức UDP Multicast cho phép Server gửi các cảnh báo đến nhiều Client đồng thời, đảm bảo thông tin sự cố được lan truyền ngay lập tức.
 
-**Server: Thu thập dữ liệu thời tiết từ OpenWeather API, định kỳ gửi các cảnh báo đến một nhóm multicast.**
+Server: Phát sinh hoặc thu thập cảnh báo an ninh (cháy nổ, xâm nhập, sự cố kỹ thuật, …) và gửi theo cơ chế multicast.
 
-**Client: Nhận dữ liệu từ nhóm multicast và hiển thị cảnh báo trên giao diện người dùng (GUI).Lưu trữ dữ liệu: Các cảnh báo được lưu vào file văn bản (weather_alerts.log) để theo dõi lịch sử.**  
+Client: Tham gia nhóm multicast, nhận dữ liệu và hiển thị cảnh báo trên giao diện GUI trực quan với màu sắc và biểu tượng tùy theo mức độ.
 
-Các chức năng chính:
+Lưu trữ: Các sự kiện được ghi vào log (trên GUI và file văn bản) để tiện theo dõi và tra cứu lịch sử.
 
-**🖥️ Chức năng của Server:**  
+🖥️ Chức năng của Server
 
-- Thu thập dữ liệu thời tiết: Gọi API OpenWeather để lấy thông tin thời tiết (nhiệt độ, tốc độ gió, lượng mưa, mô tả thời tiết) cho một thành phố cụ thể.  
-- Gửi cảnh báo: Sử dụng giao thức UDP multicast để gửi các cảnh báo thời tiết đến tất cả client trong nhóm multicast.  
-- Quản lý lịch sử: Ghi lại các cảnh báo vào log (GUI và file).  
-- Xử lý lỗi: Xử lý các lỗi liên quan đến API hoặc kết nối mạng, hiển thị thông báo trên GUI.  
-- Giao diện người dùng: Cung cấp GUI để nhập tên thành phố, khởi động/dừng server, và hiển thị log cảnh báo.
+Phát cảnh báo: Gửi thông tin cảnh báo an ninh (thời gian, mức độ, loại, khu vực, chi tiết) đến tất cả client qua multicast.
 
-**💻 Chức năng của Client:**  
+Quản lý log: Ghi lại lịch sử cảnh báo vào file hoặc giao diện log.
 
-- Kết nối nhóm multicast: Tham gia vào nhóm multicast để nhận dữ liệu từ server.  
-- Hiển thị cảnh báo: Nhận và hiển thị thông tin thời tiết (mô tả, nhiệt độ, tốc độ gió, lượng mưa) trên GUI.  
-- Giao diện người dùng: Hiển thị các cảnh báo với màu sắc và biểu tượng cảm xúc phù hợp (mưa, bão, nắng nóng, v.v.).  
-- Lưu trữ lịch sử: Lưu các cảnh báo vào file weather_alerts.log với dấu thời gian.  
-- Quản lý trạng thái: Cho phép dừng client và ngắt kết nối khỏi nhóm multicast.
+Xử lý lỗi: Hiển thị và ghi lại lỗi kết nối, gửi/nhận dữ liệu.
 
-**🌐 Chức năng hệ thống:**  
+Giao diện GUI: Cho phép quản lý server, theo dõi danh sách cảnh báo đã gửi.
 
-- Giao thức UDP Multicast: Sử dụng DatagramSocket và MulticastSocket để gửi/nhận dữ liệu qua nhóm multicast (239.255.0.1:4446).  
-- Dữ liệu JSON: Dữ liệu thời tiết được truyền dưới dạng chuỗi JSON, chứa các thông tin như loại cảnh báo, mô tả, nhiệt độ, tốc độ gió, lượng mưa, vị trí, và thời gian.  
-- Lưu trữ file: Các cảnh báo được ghi vào file weather_alerts.log theo định dạng có dấu thời gian.  
-- Xử lý lỗi: Hiển thị thông báo lỗi trên GUI và ghi log chi tiết.
+💻 Chức năng của Client
 
+Kết nối multicast: Tham gia vào nhóm multicast 230.0.0.1:4446 để nhận dữ liệu từ server.
+
+Hiển thị cảnh báo: Trình bày cảnh báo trong bảng (JTable) với màu sắc + biểu tượng riêng cho từng mức độ (LOW, MEDIUM, HIGH, CRITICAL, EMERGENCY).
+
+Thông báo tức thì: Với cảnh báo nghiêm trọng (CRITICAL, EMERGENCY), hệ thống bật âm thanh beep và hiện popup.
+
+Lưu trữ log: Hiển thị nhật ký hoạt động trên GUI và lưu kèm thời gian.
+
+Tìm kiếm / lọc dữ liệu: Cho phép nhập từ khóa để tìm kiếm nhanh trong danh sách cảnh báo.
+
+Chế độ test: Có sẵn nút “Test Alert” để mô phỏng cảnh báo ngay cả khi chưa kết nối server.
+
+🌐 Chức năng hệ thống
+
+UDP Multicast: Giao tiếp qua nhóm 230.0.0.1:4446 bằng MulticastSocket.
+
+Định dạng dữ liệu: Dữ liệu cảnh báo được truyền dưới dạng chuỗi time|level|type|area|detail.
+
+Biểu tượng trực quan: Mỗi mức độ cảnh báo hiển thị icon riêng (vòng tròn màu, tam giác cảnh báo).
+
+Lưu trữ file: Toàn bộ cảnh báo ghi vào file log kèm dấu thời gian.
+
+Xử lý lỗi: Hệ thống thông báo rõ ràng khi có sự cố mạng/kết nối.
 
 
 
