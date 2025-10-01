@@ -227,7 +227,6 @@ Cảnh báo CRITICAL/EMERGENCY kèm beep và popup.
 Nhấn Đóng để thoát ứng dụng.
 
 
-
 ## 📚 5. Thông tin liên hệ
 Họ tên: Nguyễn Trung Hiếu.  
 Lớp: CNTT 16-01.  
