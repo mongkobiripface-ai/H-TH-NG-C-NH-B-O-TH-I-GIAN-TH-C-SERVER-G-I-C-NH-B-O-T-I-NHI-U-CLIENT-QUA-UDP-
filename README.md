@@ -138,7 +138,7 @@ Xử lý lắng nghe dữ liệu từ server ở client.
 
 # 🛡 Hệ thống cảnh báo an ninh thời gian thực
 
-Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh thời gian thực, gồm **Server** và **Client**.  
+Ứng dụng Java mô phỏng hệ thống cảnh báo an ninh theo thời gian thực, gồm **Server** và **Client**.  
 Server gửi cảnh báo qua mạng multicast, Client tự động nhận và hiển thị cảnh báo với GUI trực quan.
 
 ---
@@ -155,14 +155,12 @@ Server gửi cảnh báo qua mạng multicast, Client tự động nhận và hi
 
 ---
 
-## 📦 Cài đặt và triển khai
-
-### Bước 1: Chuẩn bị môi trường
+# Bước 1: Chuẩn bị môi trường
 Kiểm tra Java:
 ```bash
 java -version
 javac -version
-Đảm bảo cả hai lệnh hiển thị phiên bản Java 8 trở lên.
+Đảm bảo cả hai lệnh hiển thị Java 8 trở lên.
 
 Sao chép thư mục chứa các file:
 
@@ -170,36 +168,38 @@ SecurityAlertServer.java
 
 SecurityAlertClient.java
 
-config.properties (nếu có, dùng cho cấu hình mặc định)
+config.properties (nếu có)
 
 Bước 2: Biên dịch mã nguồn
+
 bash
 Sao chép mã
 javac *.java
-Hoặc biên dịch từng file riêng lẻ:
+Hoặc biên dịch riêng:
 
 bash
 Sao chép mã
 javac SecurityAlertServer.java
 javac SecurityAlertClient.java
-Nếu biên dịch thành công, các file .class sẽ được tạo ra.
+File .class sẽ được tạo nếu biên dịch thành công.
 
 Bước 3: Chạy ứng dụng
+
 Server
 bash
 Sao chép mã
 java SecurityAlertServer
 GUI server hiển thị.
 
-Nhấn Start: gửi cảnh báo tự động (mỗi 3 giây trong chế độ test).
+Nhấn Start: gửi cảnh báo tự động (mỗi 3 giây).
 
-Nhấn Thêm cảnh báo ngẫu nhiên hoặc ➕ Nhập tay để gửi cảnh báo thủ công.
+Nhấn Thêm cảnh báo ngẫu nhiên hoặc ➕ Nhập tay để gửi thủ công.
 
 Nhấn Stop để dừng server.
 
 Lịch sử cảnh báo hiển thị trực tiếp trên GUI.
 
-Mức độ cảnh báo & màu sắc trên GUI:
+Mức độ cảnh báo & màu trên GUI:
 
 Mức độ	Màu hiển thị
 LOW	Xanh lá
@@ -219,7 +219,14 @@ Các cảnh báo CRITICAL/EMERGENCY kèm beep và popup.
 
 Nhấn đóng ứng dụng để thoát.
 
+📄 Lịch sử cảnh báo
+File log: Weather_alerts.log
+Nếu log lặp nhiều, sẽ tạo thêm Weather_alerts2.log, Weather_alerts3.log.
 
+Thời gian	Mức độ	Loại cảnh báo	Khu vực	Chi tiết
+2025-10-01 14:30:05	LOW	Weather	Hà Nội	Nhiệt độ giảm xuống 18°C
+2025-10-01 14:33:08	HIGH	Security	Khu A	Xâm nhập trái phép
+2025-10-01 14:35:12	CRITICAL	Fire Alarm	Khu B	Cháy tại tầng 2
 
 
 ## 📚 5. Thông tin liên hệ
