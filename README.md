@@ -68,13 +68,6 @@ LOW 🟢 | MEDIUM 🟡 | HIGH 🟠 | CRITICAL 🔴 | EMERGENCY 🚨
 
 ⚡ Xử lý lỗi: Hệ thống báo lỗi rõ ràng khi có sự cố mạng/kết nối.
 
-👉 Với cách trình bày này:
-
-Tiêu đề rõ ràng với icon.
-
-Các chức năng gạch đầu dòng dễ đọc.
-
-Mức độ cảnh báo có màu + emoji để trực quan hơn.
 
 
 
