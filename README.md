@@ -107,33 +107,31 @@ Xử lý lắng nghe dữ liệu từ server ở client.
 ## 🚀 3. Hình ảnh các chức năng
 
 <p align="center">
-  <img src="images/hinh5.jpg" alt="Ảnh 1" width="800"/>
+  <img src="images/hinh1.png" alt="Hình 1" width="600"/>
+</p>
+<p align="center">
+  <em>Hình 1: Giao diện đăng nhập hệ thống</em>
 </p>
 
 <p align="center">
-  <em> Hình 1: Giao diện Server hiển thị log cảnh báo và nút điều khiển  </em>
+  <img src="images/hinh2.png" alt="Hình 2" width="800"/>
+</p>
+<p align="center">
+  <em>Hình 2: Giao diện Client hiển thị cảnh báo an ninh</em>
 </p>
 
 <p align="center">
-  <img src="images/hinh6.jpg" alt="Ảnh 2" width="700"/>
+  <img src="images/hinh3.png" alt="Hình 3" width="800"/>
 </p>
 <p align="center">
-  <em> Hình 2: Giao diện các Client hiển thị các cảnh báo thời tiết </em>
-</p>
-
-
-<p align="center">
-  <img src="images/hinh3.jpg" alt="Ảnh 3" width="450"/>
-</p>
-<p align="center">
-  <em> Hình 3: Lịch sử cảnh báo được lưu vào file weather_alerts.log </em>
+  <em>Hình 3: Giao diện Server hiển thị log cảnh báo và điều khiển</em>
 </p>
 
 <p align="center">
-  <img src="images/hinh4.jpg" alt="Ảnh 4" width="700"/>
+  <img src="images/hinh4.png" alt="Hình 4" width="700"/>
 </p>
 <p align="center">
-  <em> Hình 4: Hiển thị thông báo lỗi khi kết nối API thất bại </em>
+  <em>Hình 4: Giao diện cảnh báo nghiêm trọng (popup Client)</em>
 </p>
 
 
