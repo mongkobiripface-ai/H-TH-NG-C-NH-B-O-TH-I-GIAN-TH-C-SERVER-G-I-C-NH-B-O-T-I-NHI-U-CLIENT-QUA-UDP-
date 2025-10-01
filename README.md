@@ -270,6 +270,8 @@ Nhấn đóng ứng dụng để thoát.
 Log cảnh báo được lưu vào file Weather_alerts.log (hoặc Weather_alerts2.log, Weather_alerts3.log nếu có nhiều client).
 
 
+
+
 # **📚 5. Thông tin liên hệ**
 
 **Họ tên:** Nguyễn Trung Hiếu  
