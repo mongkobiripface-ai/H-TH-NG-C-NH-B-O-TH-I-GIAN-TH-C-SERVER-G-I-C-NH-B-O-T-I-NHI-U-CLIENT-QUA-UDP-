@@ -269,10 +269,11 @@ Nhấn đóng ứng dụng để thoát.
 
 Log cảnh báo được lưu vào file Weather_alerts.log (hoặc Weather_alerts2.log, Weather_alerts3.log nếu có nhiều client).
 
+
 ## 📚 5. Thông tin liên hệ
-Họ tên: Lê Đức Khánh Long.  
-Lớp: CNTT 16-03.  
-Email: khanhlong12c@gmail.com
+Họ tên: Nguyễn Trung Hiếu  
+Lớp: CNTT 16-01.  
+Email: mongkobiripface@gmail.com
 
 © 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
 
